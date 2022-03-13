@@ -1,0 +1,1 @@
+//cover .. background area middle of website

@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { AuthContext } from '../../context/auth.context';
+import { AuthContext } from '../context/auth.context';
 
 function LoginPage() {
   const [email, setemail] = useState('');
@@ -46,3 +46,8 @@ function LoginPage() {
 }
 
 export default LoginPage;
+ 
+
+
+//REDIRECIONAR PARA O PROFILE ASSIM QUE O USUARIO FIZER O LOG IN
+// ESTA INFORMACAO EU POSSO PEGAR DO MEU PROJETO DO IRONKICKS..... 
