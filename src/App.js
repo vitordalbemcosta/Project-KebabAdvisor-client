@@ -14,8 +14,7 @@ import InfosPage from "./pages/InfosPage";
 import Reviewspage from "./pages/ReviewsPage";
 // import Cover from "./components/Cover/Cover";
 // import About from "./components/About/About";
-import LandingPageTwo from "./components/LandingPageTwo/LandingPageTwo";
-import LandingPageOne from "./components/LandingPageOne/LandingPageOne";
+
 
 
 function App() {

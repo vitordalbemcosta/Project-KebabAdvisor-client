@@ -5,7 +5,8 @@
 
 //a foto poder ser adicionada aos favoritos do perfil .
 
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 import styled from "styled-components";
 
@@ -16,6 +17,8 @@ const DivTag = styled.div`
 `;
 
 function InfosPage() {
+    const [info, setInfo] = useState([]);
+
   return (
       <DivTag>
           <h1> More about the X restaurant below ! </h1>

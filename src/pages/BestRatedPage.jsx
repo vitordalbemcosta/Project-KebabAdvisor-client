@@ -66,8 +66,8 @@ function BestRatedPage() {
                       style={{ height: "35vh" }}
                     />
                     <Card.Title>Name: {i.name} </Card.Title>
-                    <Card.Text>Address: {i.address}</Card.Text>
-                    <Card.Text>You can find here: {i.description}</Card.Text>
+                    {/* <Card.Text>Address: {i.address}</Card.Text> */}
+                    {/* <Card.Text>You can find here: {i.description}</Card.Text> */}
                     <Card.Text>Current rating: {i.rating} out of 5!</Card.Text>
                   </Card.Body>
                 </Card>

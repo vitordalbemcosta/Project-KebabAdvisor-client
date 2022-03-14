@@ -27,7 +27,7 @@ function NavBarLoggedIn() {
             {loggedIn && (
               <>
                 <li>
-                  <Link to="/bestrated">Get Random</Link>
+                  <Link to="/randomrestaurant">Get Random</Link>
                 </li>
                 <li>
                   <Link to="/profile">Profile</Link>
