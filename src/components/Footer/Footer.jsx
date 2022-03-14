@@ -28,10 +28,10 @@ const FooterTag = styled.footer`
 function Footer() {
   return (
     <FooterTag>
-      <a href="https://github.com/vitordalbemcosta" target="_blank">
+      <a href="https://github.com/vitordalbemcosta" target="_blank" rel="noreferrer">
         <AiFillGithub className="my-react-icons" />
       </a>
-      <a href="https://www.linkedin.com/in/v%C3%ADtordalbemcosta/" target="_blank">
+      <a href="https://www.linkedin.com/in/v%C3%ADtordalbemcosta/" target="_blank" rel="noreferrer">
         <AiFillLinkedin className="my-react-icons" />
       </a>
     </FooterTag>

@@ -9,8 +9,11 @@ import Footer from "./components/Footer/Footer"
 import IsPrivate from "./components/IsPrivate/IsPrivate"
 import ProfilePage from "./pages/ProfilePage"
 import RandomPage from "./pages/RandomPage"
-
-
+import BestRatedPage from "./pages/BestRatedPage"
+import InfosPage from "./pages/InfosPage"
+import Reviewspage from "./pages/ReviewsPage"
+import Cover from "./components/Cover/Cover"
+import About from "./components/About/About"
 
 function App() {
   return (
@@ -22,6 +25,7 @@ function App() {
           path="/signup"
           element={
             <IsAnon>
+              {" "}
               <SignupPage />
             </IsAnon>
           }
@@ -30,6 +34,7 @@ function App() {
           path="/login"
           element={
             <IsAnon>
+              {" "}
               <LoginPage />
             </IsAnon>
           }
@@ -50,8 +55,38 @@ function App() {
             </IsPrivate>
           }
         />
+        <Route
+          path="/infos"
+          element={
+            <IsPrivate>
+              {" "}
+              <InfosPage />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/bestrated"
+          element={
+            <IsPrivate>
+              <BestRatedPage />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/reviews"
+          element={
+            <IsPrivate>
+              {" "}
+              <Reviewspage />{" "}
+            </IsPrivate>
+          }
+        />
         <Route />
       </Routes>
+      <main>
+        <Cover />
+        <About />
+      </main>
       <Footer />
     </div>
   );
