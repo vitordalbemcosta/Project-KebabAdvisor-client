@@ -3,3 +3,13 @@
  // PUXAR FOTO, REVIEWS, DESCRICAO, COMENTARIOS.... ETC
  // USUARIO PODE ADICIONAR A RECOMENDACAO PARA SUA LISTA DE FAVORITOS NO
 // PERFIL OU PODE NEGAR A RECOMENDACAO E ASSIM GERAR UM OUTRO RESTAURANTE ALEATORIO....
+
+import React from 'react'
+
+function RandomPage() {
+  return (
+    <div>RandomPage</div>
+  )
+}
+
+export default RandomPage

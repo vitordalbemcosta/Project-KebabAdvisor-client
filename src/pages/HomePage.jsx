@@ -1,12 +1,21 @@
 import React from "react";
 
+
+import styled from "styled-components";
+
+const DivTag = styled.div`
+   {
+    height: 90vh;
+  }
+`;
+
 function HomePage() {
   return (
-    <div>
+    <DivTag>
       <h1>Kebab Advisor</h1>
       <h3>To Kebab Lovers</h3>
       <h3>From Kebab Lovers</h3>
-    </div>
+    </DivTag>
   );
 }
 

@@ -5,15 +5,15 @@ import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import Navbar from "./components/NavBar/Navbar";
 import IsAnon from "./components/IsAnon/IsAnon";
-import Footer from "./components/Footer/Footer"
-import IsPrivate from "./components/IsPrivate/IsPrivate"
-import ProfilePage from "./pages/ProfilePage"
-import RandomPage from "./pages/RandomPage"
-import BestRatedPage from "./pages/BestRatedPage"
-import InfosPage from "./pages/InfosPage"
-import Reviewspage from "./pages/ReviewsPage"
-import Cover from "./components/Cover/Cover"
-import About from "./components/About/About"
+import Footer from "./components/Footer/Footer";
+import IsPrivate from "./components/IsPrivate/IsPrivate";
+import ProfilePage from "./pages/ProfilePage";
+import RandomPage from "./pages/RandomPage";
+import BestRatedPage from "./pages/BestRatedPage";
+import InfosPage from "./pages/InfosPage";
+import Reviewspage from "./pages/ReviewsPage";
+import Cover from "./components/Cover/Cover";
+import About from "./components/About/About";
 
 function App() {
   return (
@@ -83,10 +83,6 @@ function App() {
         />
         <Route />
       </Routes>
-      <main>
-        <Cover />
-        <About />
-      </main>
       <Footer />
     </div>
   );
