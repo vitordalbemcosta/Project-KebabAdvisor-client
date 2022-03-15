@@ -11,10 +11,11 @@
 
 
 function ProfilePage() {
-    
+
     return (
         <>
             <h1> Welcome, @user</h1>
+            <h3> Favorite restaurants </h3>
         </>
     );
 }

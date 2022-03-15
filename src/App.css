@@ -2,3 +2,33 @@
     font-family: 'League Spartan', sans-serif;
     font-weight: lighter;
 }
+.heading-restaurants{
+     font-weight: larger;
+     text-align: center;
+     margin: 40px;
+     font-size: 3rem;
+}
+.p-restaurants {
+    font-weight: larger;
+    text-align: center;
+    margin: 30px;
+    font-size: 2rem;
+
+}
+.h-100 {
+    text-align: center;
+    margin: 20px 10px 1px 10px;
+
+}
+.title-card {
+    font-weight: bold;
+}
+
+.section-all {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-content: center;
+}

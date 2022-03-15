@@ -9,6 +9,9 @@ import axios from "axios";
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import "../App.css";
+import { Link } from "react-router-dom";
+import Button from "react-bootstrap/Button";
 
 
 
@@ -25,43 +28,63 @@ function RandomPage() {
         }
       );
       let restaurantsFromApi = response.data;
-      setGetRandomKebab(restaurantsFromApi[Math.floor(Math.random() * getRandomKebab.length)]);
+      setGetRandomKebab(restaurantsFromApi);
     } catch (error) {
       console.log(error);
     }
   };
 
-    useEffect(() => {
-        fetchApi();
-        
-    }, []);
+  useEffect(() => {
+    fetchApi();
+  }, []);
 
   return (
     <>
-      <h1>WE HAVE GOT YOU!</h1>
-      <p>This is our randommized restaurant suggestion for you to check out </p>
-      <Row xs={2} sm={3} className="m-4">
-        {/* {getRandomKebab.map((i) => {
-                  return ( */}
-        <Col key={getRandomKebab._id}>
-          <Card className="h-100" style={{ width: "27rem" }}>
-            <Card.Body>
-              <Card.Img
-                variant="top"
-                src={getRandomKebab.image}
-                style={{ height: "35vh" }}
-              />
-              <Card.Title>Name: {getRandomKebab.name} </Card.Title>
-              <Card.Text>Address: {getRandomKebab.address}</Card.Text>
-              <Card.Text>
-                You can find here: {getRandomKebab.description}
-              </Card.Text>
-              <Card.Text>
-                Current rating: {getRandomKebab.rating} out of 5!
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
+          <h1 className="heading-restaurants">WE HAVE GOT YOU! 🍔</h1>
+          <p className="p-restaurants"> Here is a list of the most famous Kebab Shops in Lisbon!
+              add you favourites to your profile page and leave a comment! Help other users to know more about
+          these restaurants</p>
+
+          <Row xs={2} sm={3} className="m-4">
+        {getRandomKebab
+          .filter((a, b) => b < 24)
+
+          
+          .map((i) => {
+            return (
+              <Col key={i._id}>
+                <Card className="h-100" style={{ width: "27rem" }}>
+                  <Card.Body>
+                    <Link to="/infos">
+                      <Card.Img
+                        variant="top"
+                        src={i.image}
+                        style={{ height: "35vh" }}
+                      />
+                    </Link>
+                    <Card.Title className="title-card"> {i.name} </Card.Title>
+                    <Card.Text> {i.address}</Card.Text>
+                    <Card.Text> {i.description}</Card.Text>
+                    <Card.Text> {i.rating} out of 5!</Card.Text>
+                    <Card.Text>
+                      <Link to="/profile">
+                        <Button variant="secondary" size="lg" disabled>
+                          Add to favorites
+                        </Button>{" "}
+                      </Link>
+                    </Card.Text>
+                    <Card.Text>
+                      <Link to="/reviews">
+                        <Button variant="secondary" size="md" disabled>
+                          Leave a review!
+                        </Button>{" "}
+                      </Link>
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </Col>
+            );
+          })}
       </Row>
     </>
   );
