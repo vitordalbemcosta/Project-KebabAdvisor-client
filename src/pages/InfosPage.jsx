@@ -11,17 +11,18 @@ import axios from "axios";
 
 function InfosPage() {
   const [information, setInformation] = useState(null);
-  const { name } = useParams();
+  const { restaurantId } = useParams();
 
-  const capitalize = (string) => {
-    return string[0].toUpperCase() + string.slice(1);
-  };
 
-  const fetchData = async () => {
+  const fetchApi = async () => {
     try {
-      let response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/restaurants`
-      );
+         const storedToken = localStorage.getItem("authToken");
+         let response = await axios.get(
+           `${process.env.REACT_APP_API_URL}/restaurants/${restaurantId}`,
+           {
+             headers: { Authorization: `Bearer ${storedToken}` },
+           }
+         );
       let information = response.data;
       setInformation(information);
     } catch (error) {
@@ -30,7 +31,7 @@ function InfosPage() {
   };
 
   useEffect(() => {
-    fetchData();
+    fetchApi();
   }, []);
 
   return (
@@ -38,20 +39,18 @@ function InfosPage() {
       <Link to="/"> {"<- Back"}</Link>
       {information && (
         <>
-          <h1>{capitalize(setInformation.name)}</h1>
-          <img
-            src={setInformation.sprites.other["official-artwork"].front_default}
-            alt={setInformation.name}
-          />
+          <h1>{information.name}</h1>
+          {/* <img
+            src={information.sprites.other["official-artwork"].front_default}
+            alt={information.name}
+          /> */}
 
           <div className="info">
-            <p>Name: {setInformation.name}</p>
-            <p>Description: {setInformation.description}</p>
+            <p>Name: {information.name}</p>
+            <p>Description: {information.description}</p>
             <ul>
               <h5>Ratings:</h5>
-              {setInformation.types.map((type) => (
-                <li>{capitalize(setInformation.rating)}</li>
-              ))}
+                <li>{information.rating}</li>
             </ul>
         
           </div>

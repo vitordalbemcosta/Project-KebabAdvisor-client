@@ -55,11 +55,11 @@ function RandomPage() {
               <Col key={i._id}>
                 <Card className="h-100" style={{ width: "27rem" }}>
                   <Card.Body>
-                    <Link to="/infos">
+                    <Link to={"/infos/" + i._id} >
                       <Card.Img
                         variant="top"
                         src={i.image}
-                        style={{ height: "35vh" }}
+                        style={{ height: "30vh" }}
                       />
                     </Link>
                     <Card.Title className="title-card"> {i.name} </Card.Title>
