@@ -1,4 +1,8 @@
 import React from "react";
+import axios from "axios";
+
+
+
 function LandingPageOne() {
   return (
     <section className="section-1">

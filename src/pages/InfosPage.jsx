@@ -5,25 +5,60 @@
 
 //a foto poder ser adicionada aos favoritos do perfil .
 
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 
-import styled from "styled-components";
-
-const DivTag = styled.div`
-   {
-    height: 90vh;
-  }
-`;
-
 function InfosPage() {
-    const [info, setInfo] = useState([]);
+  const [information, setInformation] = useState(null);
+  const { name } = useParams();
+
+  const capitalize = (string) => {
+    return string[0].toUpperCase() + string.slice(1);
+  };
+
+  const fetchData = async () => {
+    try {
+      let response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/restaurants`
+      );
+      let information = response.data;
+      setInformation(information);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
-      <DivTag>
-          <h1> More about the X restaurant below ! </h1>
-      </DivTag>
-  )
+    <div>
+      <Link to="/"> {"<- Back"}</Link>
+      {information && (
+        <>
+          <h1>{capitalize(setInformation.name)}</h1>
+          <img
+            src={setInformation.sprites.other["official-artwork"].front_default}
+            alt={setInformation.name}
+          />
+
+          <div className="info">
+            <p>Name: {setInformation.name}</p>
+            <p>Description: {setInformation.description}</p>
+            <ul>
+              <h5>Ratings:</h5>
+              {setInformation.types.map((type) => (
+                <li>{capitalize(setInformation.rating)}</li>
+              ))}
+            </ul>
+        
+          </div>
+        </>
+      )}
+    </div>
+  );
 }
 
-export default InfosPage
+export default InfosPage;

@@ -6,7 +6,7 @@ import { AiFillLinkedin } from "react-icons/ai";
 const FooterTag = styled.footer`
    {
     height: 10vh;
-    background-color: #4bb455;
+    background-color: #908d84;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;

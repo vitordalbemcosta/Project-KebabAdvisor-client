@@ -51,7 +51,6 @@ function BestRatedPage() {
 
     return (
     <SectionTag>
-      <h1>Best Rated Restaurants!</h1>
       <Row xs={2} sm={3} className="m-4">
         {best
           .filter((a, b) => b < 24)
