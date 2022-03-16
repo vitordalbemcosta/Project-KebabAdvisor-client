@@ -47,7 +47,7 @@ function RandomPage() {
 
           <Row xs={2} sm={3} className="m-4">
         {getRandomKebab
-          .filter((a, b) => b < 24)
+          .filter((a, b) => b < 25)
 
           
           .map((i) => {
