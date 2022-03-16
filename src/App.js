@@ -3,7 +3,7 @@ import HomePage from "./pages/HomePage";
 import { Routes, Route } from "react-router-dom";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
-import Navbar from "./components/NavBar/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 import IsAnon from "./components/IsAnon/IsAnon";
 import Footer from "./components/Footer/Footer";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
