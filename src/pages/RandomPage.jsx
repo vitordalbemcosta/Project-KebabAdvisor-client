@@ -55,17 +55,17 @@ function RandomPage() {
               <Col key={i._id}>
                 <Card className="h-100" style={{ width: "27rem" }}>
                   <Card.Body>
-                    <Link to={"/infos/" + i._id} >
+                    <Link to={"/infos/" + i._id}>
                       <Card.Img
                         variant="top"
                         src={i.image}
-                        style={{ height: "30vh" }}
+                        style={{ height: "32vh"}}
                       />
                     </Link>
                     <Card.Title className="title-card"> {i.name} </Card.Title>
-                    <Card.Text> {i.address}</Card.Text>
+                    {/* <Card.Text> {i.address}</Card.Text> */}
                     <Card.Text> {i.description}</Card.Text>
-                    <Card.Text> {i.rating} out of 5!</Card.Text>
+                    {/* <Card.Text> {i.rating} out of 5!</Card.Text> */}
                     <Card.Text>
                       <Link to="/profile">
                         <Button variant="secondary" size="lg" disabled>
@@ -74,7 +74,7 @@ function RandomPage() {
                       </Link>
                     </Card.Text>
                     <Card.Text>
-                      <Link to="/reviews">
+                      <Link to={`/reviews/${i._id}`}>
                         <Button variant="secondary" size="md" disabled>
                           Leave a review!
                         </Button>{" "}

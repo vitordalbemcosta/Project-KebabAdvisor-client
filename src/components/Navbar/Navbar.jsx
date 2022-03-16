@@ -33,6 +33,9 @@ function NavBarLoggedIn() {
                   <Link to="/profile">Profile</Link>
                 </li>
                 <li>
+                  <Link to="/reviews">My Reviews</Link>
+                </li>
+                <li>
                   <Link to="/" onClick={logoutUser}>
                     Log out
                   </Link>

@@ -13,6 +13,7 @@ function InfosPage() {
   const [information, setInformation] = useState(null);
   const { restaurantId } = useParams();
 
+  console.log(information)
 
   const fetchApi = async () => {
     try {
@@ -36,24 +37,32 @@ function InfosPage() {
 
   return (
     <div>
-      <Link to="/"> {"<- Back"}</Link>
       {information && (
         <>
-          <h1>{information.name}</h1>
-          {/* <img
-            src={information.sprites.other["official-artwork"].front_default}
+          <img
+            src={information.image}
             alt={information.name}
-          /> */}
+            style={{ height: "35vh" }}
+          />
 
           <div className="info">
             <p>Name: {information.name}</p>
             <p>Description: {information.description}</p>
             <ul>
               <h5>Ratings:</h5>
-                <li>{information.rating}</li>
+              <li>{information.rating} out of 5! </li>
+              <li>{information.address}, Lisbon</li>
             </ul>
-        
           </div>
+
+
+          <div className="reviews-list">
+            <h3>Reviews</h3>
+            {information.reviews.map(oneReview => (
+              <p>{oneReview.review}</p>
+            ))}
+          </div>
+          <Link to="/randomrestaurant"> {"Back to restaurants"}</Link>  
         </>
       )}
     </div>

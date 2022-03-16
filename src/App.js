@@ -75,7 +75,7 @@ function App() {
           }
         />
         <Route
-          path="/reviews"
+          path="/reviews/:restaurantId"
           element={
             <IsPrivate>
               {" "}
