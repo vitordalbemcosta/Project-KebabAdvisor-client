@@ -39,7 +39,7 @@ function RandomPage() {
 
   return (
     <>
-          <h1 className="heading-restaurants">WE HAVE GOT YOU! 🍔</h1>
+          <h1 className="heading-restaurants">WE HAVE GOT YOU! </h1>
           <p className="p-restaurants"> These are the most famous Kebab Shops in Lisbon!
               Leave a review to help other users learn more about restaurants</p>
 
