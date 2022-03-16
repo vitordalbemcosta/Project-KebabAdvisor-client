@@ -6,7 +6,7 @@ a {
 }
 
 #navbars {
-  background: #DA7654;
+  background: #DF253F;
   color: rgb(13, 26, 38);
   top: 0;
   height: 10vh;
@@ -41,12 +41,12 @@ a {
 }
 
 #navbars li a {
-  color: rgb(13, 26, 38);
+  color: rgb(248, 248, 248);
   display: block;
-  font-size: 0.7em;
+  font-size: 1em;
   height: 50px;
   letter-spacing: 1px;
-  margin: 0 20px;
+  margin: 10px 5px;
   padding: 0 4px;
   position: relative;
   text-decoration: none;
@@ -57,7 +57,7 @@ a {
 
 #navbars li a:hover {
   /* border-bottom: 1px solid rgb(28, 121, 184); */
-  color: rgb(28, 121, 184);
+  color: black;
   transition: all 1s ease;
   -webkit-transition: all 1s ease;
 }
@@ -79,13 +79,13 @@ a {
 }
 
 #navbars li a:after {
-  background: #4d4847;
+  background: white;
   right: 0;
   transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 #navbars li a:hover:before {
-  background: #4d4847;
+  background: white;
   width: 100%;
   transition: width 0.5s cubic-bezier((0.22, 0.61, 0.36, 1));
 }

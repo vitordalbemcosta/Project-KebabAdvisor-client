@@ -39,30 +39,33 @@ function InfosPage() {
     <div>
       {information && (
         <>
-          <img
-            src={information.image}
-            alt={information.name}
-            style={{ height: "35vh" }}
-          />
+          <div className="infos-styles">
+            <img
+              src={information.image}
+              alt={information.name}
+              style={{ height: "35vh" }}
+            />
 
-          <div className="info">
-            <p>Name: {information.name}</p>
-            <p>Description: {information.description}</p>
-            <ul>
-              <h5>Ratings:</h5>
-              <li>{information.rating} out of 5! </li>
-              <li>{information.address}, Lisbon</li>
-            </ul>
+            <div className="info-infos">
+              <p>Name: {information.name}</p>
+              <p>Description: {information.description}</p>
+              <ul>
+                <h5>Ratings:</h5>
+                <li>{information.rating} out of 5! </li>
+                <li>{information.reviews.rating}</li>
+                <li>{information.address}, Lisbon</li>
+              </ul>
+              <button type="submit"> Delete review! </button>
+            </div>
+
+            <div className="reviews-list">
+              <h3>Reviews</h3>
+              {information.reviews.map((oneReview) => (
+                <p>{oneReview.review}</p>
+              ))}
+            </div>
+            <Link to="/randomrestaurant"> {"Back to restaurants"}</Link>
           </div>
-
-
-          <div className="reviews-list">
-            <h3>Reviews</h3>
-            {information.reviews.map(oneReview => (
-              <p>{oneReview.review}</p>
-            ))}
-          </div>
-          <Link to="/randomrestaurant"> {"Back to restaurants"}</Link>  
         </>
       )}
     </div>

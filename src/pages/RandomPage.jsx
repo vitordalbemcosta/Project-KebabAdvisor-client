@@ -9,7 +9,6 @@ import axios from "axios";
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import "../App.css";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 
@@ -41,13 +40,12 @@ function RandomPage() {
   return (
     <>
           <h1 className="heading-restaurants">WE HAVE GOT YOU! 🍔</h1>
-          <p className="p-restaurants"> Here is a list of the most famous Kebab Shops in Lisbon!
-              add you favourites to your profile page and leave a comment! Help other users to know more about
-          these restaurants</p>
+          <p className="p-restaurants"> These are the most famous Kebab Shops in Lisbon!
+              Leave a review to help other users learn more about restaurants</p>
 
           <Row xs={2} sm={3} className="m-4">
         {getRandomKebab
-          .filter((a, b) => b < 25)
+          .filter((a, b) => b < 24)
 
           
           .map((i) => {
@@ -68,14 +66,14 @@ function RandomPage() {
                     {/* <Card.Text> {i.rating} out of 5!</Card.Text> */}
                     <Card.Text>
                       <Link to="/profile">
-                        <Button variant="secondary" size="lg" disabled>
+                        {/* <Button variant="secondary" size="md" disabled>
                           Add to favorites
-                        </Button>{" "}
+                        </Button>{" "} */}
                       </Link>
                     </Card.Text>
                     <Card.Text>
                       <Link to={`/reviews/${i._id}`}>
-                        <Button variant="secondary" size="md" disabled>
+                        <Button variant="secondary" size="lg" disabled>
                           Leave a review!
                         </Button>{" "}
                       </Link>

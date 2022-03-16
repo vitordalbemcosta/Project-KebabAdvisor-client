@@ -29,7 +29,7 @@ function ReviewsPage() {
     console.log(body)
 
     axios
-      .post(`${process.env.REACT_APP_API_URL}/reviews`, body,           {
+      .post(`${process.env.REACT_APP_API_URL}/reviews`, body, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then(() => {
@@ -65,7 +65,7 @@ function ReviewsPage() {
     <div>
       {getRandomKebab && (
         <>
-          <h1> Leave you review for bellow </h1>
+          <h1><b> Leave you review bellow </b></h1>
           <img
             src={getRandomKebab.image}
             alt={review.review}
@@ -89,6 +89,7 @@ function ReviewsPage() {
               ></textarea>
 
               <button type='submit'>Submit your review </button>
+              
             </form>
           </div>
           <Link to="/randomrestaurant"> {"Back to restaurants"}</Link>
