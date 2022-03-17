@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 // import { ThemeContext } from "../../context/theme.context";
 import { AuthContext } from "../../context/auth.context";
 import './navbar.css';
+import axios from 'axios';
+
+
 
 function NavBarLoggedIn() {
   const { loggedIn, user, logoutUser } = useContext(AuthContext);
@@ -22,6 +25,9 @@ function NavBarLoggedIn() {
                 <li>
                   <Link to="/login">LogIn</Link>
                 </li>
+                <li>
+                  <Link to="/">Weather here</Link>
+                </li>
               </>
             )}
             {loggedIn && (
@@ -29,15 +35,12 @@ function NavBarLoggedIn() {
                 <li>
                   <Link to="/randomrestaurant">All Restaurants</Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link to="/profile">Profile</Link>
-                </li>
-                <li>
-                  <Link to="/reviews">My Reviews</Link>
-                </li>
+                </li> */}
                 <li>
                   <Link to="/" onClick={logoutUser}>
-                    Log out
+                    Sign out
                   </Link>
                 </li>
               </>

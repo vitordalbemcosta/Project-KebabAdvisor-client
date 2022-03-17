@@ -10,7 +10,6 @@ function LandingPageOne() {
       </div>
       <img src="" alt="" />
       <article id="article-1">
-        <p>blah blah blah blah</p>
       </article>
     </section>
   );

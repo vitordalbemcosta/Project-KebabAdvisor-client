@@ -5,13 +5,20 @@
 
 //a foto poder ser adicionada aos favoritos do perfil .
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/auth.context";
 import axios from "axios";
 
 function InfosPage() {
   const [information, setInformation] = useState(null);
   const { restaurantId } = useParams();
+  const { user } = useContext(AuthContext);
+
+  const storedToken = localStorage.getItem("authToken");
+
+  let navigate = useNavigate();
 
   console.log(information)
 
@@ -35,33 +42,51 @@ function InfosPage() {
     fetchApi();
   }, []);
 
+  const handleDeleteReview = (reviewId) => {
+    console.log("clicking", reviewId);
+    axios
+      .delete(`${process.env.REACT_APP_API_URL}/reviews/${reviewId}`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then(() => navigate(`/randomrestaurant`))
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div>
       {information && (
         <>
-          <div className="infos-styles">
+          <div className="infos-styles-reviews">
             <img
               src={information.image}
               alt={information.name}
-              style={{ height: "35vh" }}
+              style={{ height: "50vh" }}
             />
 
             <div className="info-infos">
-              <p>Name: {information.name}</p>
-              <p>Description: {information.description}</p>
-              <ul>
-                <h5>Ratings:</h5>
-                <li>{information.rating} out of 5! </li>
-                <li>{information.reviews.rating}</li>
-                <li>{information.address}, Lisbon</li>
-              </ul>
-              <button type="submit"> Delete review! </button>
+              <p>
+                <b>{information.name}</b>
+              </p>
+              <p>{information.description}</p>
+              <p>{information.address}, Lisbon</p>
+              <p>{information.rating} ⭐️ out of 5! </p>
             </div>
 
             <div className="reviews-list">
-              <h3>Reviews</h3>
+              <ul>
+                <h1>Reviews</h1>
+              </ul>
               {information.reviews.map((oneReview) => (
-                <p>{oneReview.review}</p>
+                <ul>
+                  <h3>
+                    <i> - "{oneReview.review}"</i>
+                  </h3>
+                  <div className="button-delete-review">
+                    <button onClick={() => handleDeleteReview(oneReview._id)}>
+                      Delete Review
+                    </button>
+                  </div>
+                </ul>
               ))}
             </div>
             <Link to="/randomrestaurant"> {"Back to restaurants"}</Link>

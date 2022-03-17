@@ -2,12 +2,12 @@ import {GiDonerKebab} from 'react-icons/gi'
 import { BsFillHandThumbsUpFill } from "react-icons/bs";
 import { MdRateReview } from "react-icons/md";
 import styled from "styled-components";
-import "../../App.css"
 
 const IconTag = styled.section`
+
   .my-react-icons {
-    height: 50px;
-    width: 50px;
+    height: 100px;
+    width: 80px;
   }
 `;
 
@@ -15,29 +15,23 @@ function LandingPageTwo() {
   return (
     <div className="section-all">
       <IconTag className="section-2">
-        <div>
+        <div className="icon-one-pagetwo">
           <GiDonerKebab className="my-react-icons" />
-          <h4>Lisbon's</h4>
-          <p>The most visited shops in Lisbon</p>
-          <p>bla bla bla</p>
+          <h1>Lisbon's finest</h1>
+          <p>Location and more!</p>
         </div>
 
-        <div>
+        <div className="icon-two-pagetwo">
           <BsFillHandThumbsUpFill className="my-react-icons" />
-          <h4>Easy to use</h4>
-          <p>Create an account, find multile shops and save them with you!</p>
-          <p>bla bla bla</p>
+          <h1>Easy to use</h1>
+          <p>Create an account and find multile shops</p>
         </div>
 
-        <div>
+        <div className="icon-three-pagetwo">
           <MdRateReview className="my-react-icons" />
-          <h4>Interact with other users</h4>
+          <h1>Interact with other users</h1>
           <p>
-            Leave a review about your experience at the kebab shop you have been
-            to
-          </p>
-          <p>
-            bla bla lbaslbla bla
+            Review the shops you have been to
           </p>
         </div>
       </IconTag>

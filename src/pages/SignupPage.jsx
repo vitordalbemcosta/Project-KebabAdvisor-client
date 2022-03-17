@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import BackgroundSignup from ".././assets/images/photo-restaurant.jpg"
 
 function SignupPage() {
   const [email, setemail] = useState("");
@@ -24,28 +25,39 @@ function SignupPage() {
       .catch((err) => console.log(err));
   };
   return (
-    <div>
-      <h1>Signup</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="email"> Email</label>
-        <input
-          type="text"
-          name="email"
-          value={email}
-          onChange={handleemail}
-        />
+    <section className="section-1">
+      <div
+        className="hero-section"
+        style={{ backgroundImage: `url(${BackgroundSignup})` }}
+      >
+        <h1>Signup</h1>
+        <form onSubmit={handleSubmit}>
+          <label className="text-labels" htmlFor="email">
+            {" "}
+            Email
+          </label>
+          <input
+            type="text"
+            name="email"
+            value={email}
+            onChange={handleemail}
+          />
 
-        <label htmlFor="passwordHash"> Password</label>
-        <input
-          type="passwordHash"
-          name="passwordHash"
-          value={passwordHash}
-          onChange={handlePasswordHash}
-        />
+          <label className="text-labels" htmlFor="passwordHash">
+            {" "}
+            Password
+          </label>
+          <input
+            type="passwordHash"
+            name="passwordHash"
+            value={passwordHash}
+            onChange={handlePasswordHash}
+          />
 
-        <button type="submit"> Signup</button>
-      </form>
-    </div>
+          <button type="submit"> Signup</button>
+        </form>
+      </div>
+    </section>
   );
 }
 

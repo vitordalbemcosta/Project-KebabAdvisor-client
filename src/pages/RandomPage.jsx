@@ -40,8 +40,8 @@ function RandomPage() {
   return (
     <>
           <h1 className="heading-restaurants">WE HAVE GOT YOU! </h1>
-          <p className="p-restaurants"> These are the most famous Kebab Shops in Lisbon!
-              Leave a review to help other users learn more about restaurants</p>
+          <p className="p-restaurants"> Here are the most famous Kebab Shops in Lisbon!</p>
+          <p className="p-restaurants"> Leave a review to help other users learn more about these restaurants</p>
 
           <Row xs={2} sm={3} className="m-4">
         {getRandomKebab
@@ -51,19 +51,23 @@ function RandomPage() {
           .map((i) => {
             return (
               <Col key={i._id}>
-                <Card className="h-100" style={{ width: "27rem" }}>
+                <Card className="h-100" style={{ width: "25rem" }}>
                   <Card.Body>
                     <Link to={"/infos/" + i._id}>
                       <Card.Img
                         variant="top"
                         src={i.image}
-                        style={{ height: "32vh"}}
+                        style={{ height: "30vh" }}
                       />
                     </Link>
+                    <div className="padding-name"></div>
                     <Card.Title className="title-card"> {i.name} </Card.Title>
                     {/* <Card.Text> {i.address}</Card.Text> */}
                     <Card.Text> {i.description}</Card.Text>
-                    {/* <Card.Text> {i.rating} out of 5!</Card.Text> */}
+                    <Card.Text>
+                      {" "}
+                      <b> {i.rating} ⭐️ </b>
+                    </Card.Text>
                     <Card.Text>
                       <Link to="/profile">
                         {/* <Button variant="secondary" size="md" disabled>
@@ -73,7 +77,7 @@ function RandomPage() {
                     </Card.Text>
                     <Card.Text>
                       <Link to={`/reviews/${i._id}`}>
-                        <Button variant="secondary" size="lg" disabled>
+                        <Button variant="danger" size="lg" disabled>
                           Leave a review!
                         </Button>{" "}
                       </Link>

@@ -7,12 +7,13 @@
      text-align: center;
      margin: 40px;
      font-size: 3rem;
+     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 .p-restaurants {
     font-weight: larger;
     text-align: center;
-    margin: 30px;
-    font-size: 2rem;
+    margin: 10px;
+    font-size: 2.5rem;
 
 }
 .h-100 {
@@ -34,9 +35,29 @@
 }
 .section-1 {
     background-repeat: no-repeat;
+    padding-top: -10px;
 }
 .info-infos {
-    font-size: 25px;
+    font-size: 5vh;
+    display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+    margin: 2vh;
+    padding-bottom: 2vh;
+}
+
+.reviews-list {
+    font-size: 3vh;
+    display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+    margin: 5vh;
 }
 
 .hero-section {
@@ -47,14 +68,16 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom center;
-    height: 550px;
+    height: 100vh;
     width: 100vw;
+    opacity: 0.8;
 }
 .hero-section h1 {
     text-align: center;
     color: #fff;
     font-size: 4rem;
     text-shadow: 1px 2px #0a0a0a;
+    opacity: 100;
 }
 
 .infos-styles {
@@ -64,4 +87,117 @@
 	justify-content: center;
 	align-items: center;
 	align-content: center;
+}
+.section-all {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+.icon-one-pagetwo {
+    display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+.icon-two-pagetwo {
+    display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+.icon-three-pagetwo {
+    display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+.icon-one-pagetwo {
+    display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+.button-signup {
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: flex-end;
+    
+}
+.button-signout {
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: flex-end;
+}
+.login-lable {
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: flex-end;
+    margin: 50px;
+}
+/* .bg-all-pages {
+    background-position: 
+} */
+.text-labels {
+    text-align: center;
+    color: #fff;
+    font-size: 1.5rem;
+    text-shadow: 1px 2px #0a0a0a;
+    opacity: 100;
+}
+.infos-styles-reviews {
+    display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+.infos-styles-reviews img {
+    margin: 20px;
+}
+.button-submit {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    
+}
+.button-submit button {
+    background-color: #DF253F;
+    color: white;
+    letter-spacing: 0.1vh;
+    font-weight: bolder;
+}
+.reviews-list button {
+    letter-spacing: 0.1vh;
+    color: white;
+    font-weight: bolder;
+    background-color: #DF253F
+}
+.button-delete-review {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+.padding-name {
+    padding: 10px;
 }

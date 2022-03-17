@@ -65,34 +65,38 @@ function ReviewsPage() {
     <div>
       {getRandomKebab && (
         <>
-          <h1><b> Leave you review bellow </b></h1>
-          <img
-            src={getRandomKebab.image}
-            alt={review.review}
-            style={{ height: "35vh" }}
-          />
-          <div className="info">
-            <p><b>{getRandomKebab.name}</b></p>
-            <p>Current rating: {getRandomKebab.rating}</p>
-            <ul>
-              <h5> Let us know your experience </h5>
-            </ul>
+          <div className="infos-styles-reviews">
+            <img
+              src={getRandomKebab.image}
+              alt={review.review}
+              style={{ height: "50vh" }}
+            />
+            <div className="info-infos">
+              <p>
+                <b>{getRandomKebab.name}</b>
+              </p>
+              <p>Current rating {getRandomKebab.rating} ⭐️ </p>
+            </div>
+
+            <div className="info-infos">
+              <h3> Let us know your experience </h3>
+            </div>
+
             <form onSubmit={handleSubmit}>
-              <label htmlFor="review">Your review</label>
               <textarea
                 name="review"
                 id=""
-                cols="30"
+                cols="80"
                 rows="10"
                 value={review}
                 onChange={(e) => setReview(e.target.value)}
               ></textarea>
-
-              <button type='submit'>Submit your review </button>
-              
+              <div className="button-submit">
+                <button type="submit">Submit review </button>
+              </div>
             </form>
+            <Link to="/randomrestaurant"> {"Back to restaurants"}</Link>
           </div>
-          <Link to="/randomrestaurant"> {"Back to restaurants"}</Link>
         </>
       )}
     </div>

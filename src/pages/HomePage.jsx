@@ -16,26 +16,30 @@ function HomePage() {
 
       {!loggedIn && (
         <>
-          <Link to="/signup">
-            <Button variant="primary" size="lg" disabled>
-              Create an account!
-            </Button>{" "}
-          </Link>
-          <Link to="/login">
-            <Button variant="secondary" size="lg" disabled>
-              Login
-            </Button>{" "}
-          </Link>
+          <span className="button-signup">
+            <Link to="/signup">
+              <Button variant="success" size="lg" disabled>
+                Create an account!
+              </Button>{" "}
+            </Link>
+            <Link to="/login">
+              <Button variant="danger" size="lg" disabled>
+                Login
+              </Button>{" "}
+            </Link>
+          </span>
         </>
       )}
       {loggedIn && (
         <>
-        <Link to="/" onClick={logoutUser}>
-          <Button variant="primary" size="lg" disabled>
-            Log out
-          </Button>{" "}
-          </Link>
-          </>
+          <div className="button-signout">
+            <Link to="/" onClick={logoutUser}>
+              <Button variant="primary" size="lg" disabled>
+                Sign out
+              </Button>{" "}
+            </Link>
+          </div>
+        </>
       )}
     </>
   );

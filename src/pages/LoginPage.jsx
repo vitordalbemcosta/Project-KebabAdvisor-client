@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { AuthContext } from '../context/auth.context';
+import BackgroundLogin from ".././assets/images/profileone.jpg"
 
 function LoginPage() {
   const [email, setemail] = useState('');
@@ -30,18 +31,41 @@ function LoginPage() {
       .catch((err) => console.log(err));
   };
   return (
-    <div>
-      <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="email"> Email</label>
-        <input type="text" name="email" value={email} onChange={handleemail} />
+    <section className="section-1">
+      <div
+        className="hero-section"
+        style={{ backgroundImage: `url(${BackgroundLogin})` }}
+      >
+        <h1>Login</h1>
+        <form onSubmit={handleSubmit}>
+          <span className="login-lable">
+            <label className="text-labels" htmlFor="email">
+              {" "}
+              Email
+            </label>
+            <input
+              type="text"
+              name="email"
+              value={email}
+              onChange={handleemail}
+            />
 
-        <label htmlFor="passwordHash"> Password</label>
-        <input type="password" name="passwordHash" value={passwordHash} onChange={handlePasswordHash} />
+            <label className="text-labels" htmlFor="passwordHash">
+              {" "}
+              Password
+            </label>
+            <input
+              type="password"
+              name="passwordHash"
+              value={passwordHash}
+              onChange={handlePasswordHash}
+            />
 
-        <button type="submit"> Login</button>
-      </form>
-    </div>
+            <button type="submit"> Login</button>
+          </span>
+        </form>
+      </div>
+    </section>
   );
 }
 

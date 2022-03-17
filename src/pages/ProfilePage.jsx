@@ -12,15 +12,22 @@ import React, {useContext, useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import axios from 'axios';
-// import ProfilePicOne from ".././assets/images/profileone.jpg";
-// import ProfilePicTwo from ".././assets/images/profiletwo.jpg";
-// import ProfilePicThree from ".././assets/images/profilethree.jpg";
+import { Link } from "react-router-dom";
+import Card from "react-bootstrap/Card";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
+
+
+
 
 
 
 function ProfilePage() {
-  const [currentUser, setCurrentUser] = useState(null);
-  const { user } = useContext(AuthContext);
+    const [currentUser, setCurrentUser] = useState(null);
+    const [information, setInformation] = useState([]);
+ 
+    const { user } = useContext(AuthContext);
 
   const storedToken = localStorage.getItem('authToken');
 
@@ -38,7 +45,23 @@ function ProfilePage() {
     } catch (error) {
         console.log(error);
     }
-};
+  };
+    
+    const fetchApi = async () => {
+      try {
+        const storedToken = localStorage.getItem("authToken");
+        let response = await axios.get(
+          `${process.env.REACT_APP_API_URL}/restaurants`,
+          {
+            headers: { Authorization: `Bearer ${storedToken}` },
+          }
+        );
+        let information = response.data;
+        setInformation(information);
+      } catch (error) {
+        console.log(error);
+      }
+    };
 
 const handleDeleteReview = (reviewId) => {
   console.log('clicking', reviewId)
@@ -56,6 +79,7 @@ const handleDeleteReview = (reviewId) => {
 
 useEffect(() => {
     fetchUser();
+    fetchApi();
 
 }, []); 
 
@@ -63,27 +87,62 @@ useEffect(() => {
 
     return (
       <>
-      {currentUser && (
-           <>
-      <section className="profile-section">
-      <h1> Welcome!</h1>
-    </section>
-    
-    <section>
-      <h2>My Reviews</h2>
+        {currentUser && (
+          <>
+            <Row xs={2} sm={3} className="m-4"></Row>
+            {information.map((myreviews) => {
+              return (
+                <Col key={myreviews._id}>
+                  <Card className="h-100" style={{ width: "25rem" }}>
+                    <Card.Body>
+                      <Link to={"/infos/" + myreviews._id}>
+                        <Card.Img
+                          variant="top"
+                          src={myreviews.image}
+                          style={{ height: "30vh" }}
+                        />
+                      </Link>
+                      <Card.Title className="title-card">
+                        {" "}
+                        {myreviews.name}{" "}
+                      </Card.Title>
+                      <Card.Text> {myreviews.description}</Card.Text>
+                      <Card.Text>
+                        <Link to="/profile"></Link>
+                      </Card.Text>
+                      <Card.Text>
+                        <Link to={`/reviews/${myreviews._id}`}>
+                          <Button variant="danger" size="lg" disabled>
+                            Leave a review!
+                          </Button>{" "}
+                        </Link>
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              );
+            })}
+            <section className="profile-section">
+              <h1> Welcome!</h1>
+            </section>
+            <section>
+              <h2>My Reviews</h2>
 
-      {currentUser.reviews.map(review => (
-        <div>
-          <p>{review.review}</p>
-          <p>{review.rating}</p>
-          {/* <button onClick={() => handleEditReview(review._id) }>Edit Review</button> */}
-          <button onClick={() => handleDeleteReview(review._id) }>Delete Review</button>
-        </div>
-      ))}
-
-    </section>F
-    </>
-      )}
+              {currentUser.reviews.map((review) => (
+                <div>
+                  <p>{review.review}</p>
+                  <p>{review.rating}</p>
+                  {/* <button onClick={() => handleEditReview(review._id) }>Edit Review</button> */}
+                  <Link to={"/reviews"}>
+                    <button onClick={() => handleDeleteReview(review._id)}>
+                      Delete Review
+                    </button>
+                  </Link>
+                </div>
+              ))}
+            </section>
+          </>
+        )}
       </>
     );
 }

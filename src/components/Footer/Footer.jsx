@@ -20,8 +20,8 @@ const FooterTag = styled.footer`
   .my-react-icons {
     height: 40px;
     width: 40px;
-    margin-left: 30px;
-    margin-right: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
   }
 `;
 
