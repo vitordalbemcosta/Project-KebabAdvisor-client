@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 // import { ThemeContext } from "../../context/theme.context";
 import { AuthContext } from "../../context/auth.context";
@@ -9,6 +9,22 @@ import axios from 'axios';
 
 function NavBarLoggedIn() {
   const { loggedIn, user, logoutUser } = useContext(AuthContext);
+  const [weatherData, setWeatherData] = useState(null);
+  const [lat, setLat] = useState("38");
+  const [lon, setLon] = useState("-9");
+
+
+  const fetchWeather = async () => {
+    const response = await axios.get(
+      `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${"a9751d68b4034aa80ca0180624a2b09f"}`
+    );
+    setWeatherData(`${Math.ceil(response.data.main.temp - 273.15)}oC`);
+  };
+
+  useEffect(() => {
+    fetchWeather();
+  }, []);
+
   return (
     <>
       <nav id="navbars">
@@ -26,7 +42,9 @@ function NavBarLoggedIn() {
                   <Link to="/login">LogIn</Link>
                 </li>
                 <li>
-                  <Link to="/">Weather here</Link>
+                  <div class="blink_me">
+                    <p>{weatherData}</p>
+                  </div>
                 </li>
               </>
             )}
