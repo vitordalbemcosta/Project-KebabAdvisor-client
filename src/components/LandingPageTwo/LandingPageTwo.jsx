@@ -1,15 +1,15 @@
-import {GiDonerKebab} from 'react-icons/gi'
-import { BsFillHandThumbsUpFill } from "react-icons/bs";
-import { MdRateReview } from "react-icons/md";
-import styled from "styled-components";
+import React from 'react'
+import { GiDonerKebab } from 'react-icons/gi'
+import { BsFillHandThumbsUpFill } from 'react-icons/bs'
+import { MdRateReview } from 'react-icons/md'
+import styled from 'styled-components'
 
 const IconTag = styled.section`
-
   .my-react-icons {
     height: 100px;
     width: 80px;
   }
-`;
+`
 
 function LandingPageTwo() {
   return (
@@ -30,13 +30,11 @@ function LandingPageTwo() {
         <div className="icon-three-pagetwo">
           <MdRateReview className="my-react-icons" />
           <h1>Interact with other users</h1>
-          <p>
-            Review the shops you have been to
-          </p>
+          <p>Review the shops you have been to</p>
         </div>
       </IconTag>
     </div>
-  );
+  )
 }
 
-export default LandingPageTwo;
+export default LandingPageTwo

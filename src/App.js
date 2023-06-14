@@ -1,3 +1,4 @@
+import React from "react";
 import "./App.css";
 import HomePage from "./pages/HomePage";
 import { Routes, Route } from "react-router-dom";
@@ -12,11 +13,7 @@ import RandomPage from "./pages/RandomPage";
 import BestRatedPage from "./pages/BestRatedPage";
 import InfosPage from "./pages/InfosPage";
 import Reviewspage from "./pages/ReviewsPage";
-import BackGroundAll from "./assets/images/background-all.jpg"
-// import Cover from "./components/Cover/Cover";
-// import About from "./components/About/About";
-
-
+import BackGroundAll from "./assets/images/background-all.jpg";
 
 function App() {
   return (
