@@ -1,56 +1,49 @@
-// nesta pagina eh onde vou puxar informacoes do API
-
-// uma pagina com a foto do restaurante, nome, reviews ao lado direito
-// logo abaixo, localizacao, rating...
-
-//a foto poder ser adicionada aos favoritos do perfil .
-
-import React, { useState, useEffect, useContext } from "react";
-import { useParams, Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/auth.context";
-import axios from "axios";
+import React, { useState, useEffect, useContext } from 'react'
+import { useParams, Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import { AuthContext } from '../context/auth.context'
+import axios from 'axios'
 
 function InfosPage() {
-  const [information, setInformation] = useState(null);
-  const { restaurantId } = useParams();
-  const { user } = useContext(AuthContext);
+  const [information, setInformation] = useState(null)
+  const { restaurantId } = useParams()
+  const { user } = useContext(AuthContext)
 
-  const storedToken = localStorage.getItem("authToken");
+  const storedToken = localStorage.getItem('authToken')
 
-  let navigate = useNavigate();
+  let navigate = useNavigate()
 
   console.log(information)
 
   const fetchApi = async () => {
     try {
-         const storedToken = localStorage.getItem("authToken");
-         let response = await axios.get(
-           `${process.env.REACT_APP_API_URL}/restaurants/${restaurantId}`,
-           {
-             headers: { Authorization: `Bearer ${storedToken}` },
-           }
-         );
-      let information = response.data;
-      setInformation(information);
+      const storedToken = localStorage.getItem('authToken')
+      let response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/restaurants/${restaurantId}`,
+        {
+          headers: { Authorization: `Bearer ${storedToken}` },
+        },
+      )
+      let information = response.data
+      setInformation(information)
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
-  };
+  }
 
   useEffect(() => {
-    fetchApi();
-  }, []);
+    fetchApi()
+  }, [])
 
   const handleDeleteReview = (reviewId) => {
-    console.log("clicking", reviewId);
+    console.log('clicking', reviewId)
     axios
       .delete(`${process.env.REACT_APP_API_URL}/reviews/${reviewId}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then(() => navigate(`/randomrestaurant`))
-      .catch((err) => console.log(err));
-  };
+      .catch((err) => console.log(err))
+  }
 
   return (
     <div>
@@ -60,7 +53,7 @@ function InfosPage() {
             <img
               src={information.image}
               alt={information.name}
-              style={{ height: "50vh" }}
+              style={{ height: '50vh' }}
             />
 
             <div className="info-infos">
@@ -89,12 +82,12 @@ function InfosPage() {
                 </ul>
               ))}
             </div>
-            <Link to="/randomrestaurant"> {"Back to restaurants"}</Link>
+            <Link to="/randomrestaurant"> {'Back to restaurants'}</Link>
           </div>
         </>
       )}
     </div>
-  );
+  )
 }
 
-export default InfosPage;
+export default InfosPage

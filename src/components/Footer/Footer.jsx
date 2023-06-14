@@ -1,19 +1,18 @@
-import React from "react";
-import styled from "styled-components";
-import { AiFillGithub } from "react-icons/ai";
-import { AiFillLinkedin } from "react-icons/ai";
+import React from 'react'
+import styled from 'styled-components'
+import { AiFillGithub } from 'react-icons/ai'
+import { AiFillLinkedin } from 'react-icons/ai'
 
 const FooterTag = styled.footer`
-   {
-    height: 10vh;
-    background-color: #000000;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-    align-content: stretch;
-  }
+  height: 10vh;
+  background-color: #000000;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
+
   a {
     color: white;
   }
@@ -23,19 +22,27 @@ const FooterTag = styled.footer`
     margin-left: 20px;
     margin-right: 20px;
   }
-`;
+`
 
 function Footer() {
   return (
     <FooterTag>
-      <a href="https://github.com/vitordalbemcosta" target="_blank" rel="noreferrer">
+      <a
+        href="https://github.com/vitordalbemcosta"
+        target="_blank"
+        rel="noreferrer"
+      >
         <AiFillGithub className="my-react-icons" />
       </a>
-      <a href="https://www.linkedin.com/in/v%C3%ADtordalbemcosta/" target="_blank" rel="noreferrer">
+      <a
+        href="https://www.linkedin.com/in/v%C3%ADtordalbemcosta/"
+        target="_blank"
+        rel="noreferrer"
+      >
         <AiFillLinkedin className="my-react-icons" />
       </a>
     </FooterTag>
-  );
+  )
 }
 
-export default Footer;
+export default Footer

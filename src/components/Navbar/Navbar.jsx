@@ -1,29 +1,25 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-// import { ThemeContext } from "../../context/theme.context";
-import { AuthContext } from "../../context/auth.context";
-import './navbar.css';
-import axios from 'axios';
-
-
+import React, { useContext, useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { AuthContext } from '../../context/auth.context'
+import './navbar.css'
+import axios from 'axios'
 
 function NavBarLoggedIn() {
-  const { loggedIn, user, logoutUser } = useContext(AuthContext);
-  const [weatherData, setWeatherData] = useState(null);
-  const [lat, setLat] = useState("38");
-  const [lon, setLon] = useState("-9");
-
+  const { loggedIn, logoutUser } = useContext(AuthContext)
+  const [weatherData, setWeatherData] = useState(null)
+  const [lat, setLat] = useState('38')
+  const [lon, setLon] = useState('-9')
 
   const fetchWeather = async () => {
     const response = await axios.get(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_API_KEY}`
-    );
-    setWeatherData(`${Math.ceil(response.data.main.temp - 273.15)}oC`);
-  };
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_API_KEY}`,
+    )
+    setWeatherData(`${Math.ceil(response.data.main.temp - 273.15)}oC`)
+  }
 
   useEffect(() => {
-    fetchWeather();
-  }, []);
+    fetchWeather()
+  }, [])
 
   return (
     <>
@@ -53,9 +49,7 @@ function NavBarLoggedIn() {
                 <li>
                   <Link to="/randomrestaurant">All Restaurants</Link>
                 </li>
-                {/* <li>
-                  <Link to="/profile">Profile</Link>
-                </li> */}
+
                 <li>
                   <Link to="/" onClick={logoutUser}>
                     Sign out
@@ -89,7 +83,7 @@ function NavBarLoggedIn() {
         </ul>
       </div>
     </>
-  );
+  )
 }
 
-export default NavBarLoggedIn;
+export default NavBarLoggedIn

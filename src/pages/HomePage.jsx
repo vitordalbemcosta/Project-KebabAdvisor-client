@@ -1,14 +1,12 @@
-import React, {useContext} from "react";
-import LandingPageOne from "../components/LandingPageOne/LandingPageOne";
-import LandingPageTwo from "../components/LandingPageTwo/LandingPageTwo";
-import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
-import { AuthContext } from "../context/auth.context";
-
-
+import React, { useContext } from 'react'
+import LandingPageOne from '../components/LandingPageOne/LandingPageOne'
+import LandingPageTwo from '../components/LandingPageTwo/LandingPageTwo'
+import Button from 'react-bootstrap/Button'
+import { Link } from 'react-router-dom'
+import { AuthContext } from '../context/auth.context'
 
 function HomePage() {
-  const { loggedIn, user, logoutUser } = useContext(AuthContext);
+  const { loggedIn, user, logoutUser } = useContext(AuthContext)
   return (
     <>
       <LandingPageOne />
@@ -20,12 +18,12 @@ function HomePage() {
             <Link to="/signup">
               <Button variant="success" size="lg" disabled>
                 Create an account!
-              </Button>{" "}
+              </Button>{' '}
             </Link>
             <Link to="/login">
               <Button variant="danger" size="lg" disabled>
                 Login
-              </Button>{" "}
+              </Button>{' '}
             </Link>
           </span>
         </>
@@ -36,18 +34,13 @@ function HomePage() {
             <Link to="/" onClick={logoutUser}>
               <Button variant="primary" size="lg" disabled>
                 Sign out
-              </Button>{" "}
+              </Button>{' '}
             </Link>
           </div>
         </>
       )}
     </>
-  );
+  )
 }
 
-export default HomePage;
-
-
-// Nesa pagina vai ser minha landing page... 
-
-// descobrir como eu posso reutilizar os components em paginas diferentes. (important)
+export default HomePage

@@ -1,55 +1,45 @@
-// BEST RATED RESTAURANTS
-//VOU PEGAR RESTAURANTES DA ARRAY DE RESTAURANTES
-//QUE TENHAM NO MINIMO 4.5 DE REVIEWS......
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import Card from 'react-bootstrap/Card'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import Card from "react-bootstrap/Card";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-
-
-
-import styled from "styled-components";
+import styled from 'styled-components'
 
 const SectionTag = styled.section`
-.card-body {
+  .card-body {
     text-align: center;
-}
-.card-image-top {
+  }
+  .card-image-top {
     width: 100%;
     object-fit: cover;
-}
-
+  }
 `
 
-
-
 function BestRatedPage() {
-    const [best, setBest] = useState([]);
+  const [best, setBest] = useState([])
 
-    const fetchApi = async () => {
-        try {
-            const storedToken = localStorage.getItem('authToken');
-            let response = await axios.get(
-              `${process.env.REACT_APP_API_URL}/restaurants`,
-              {
-                headers: { Authorization: `Bearer ${storedToken}` },
-              }
-            );
-            let restaurantsFromApi = response.data;
-            setBest(restaurantsFromApi);
-        } catch (error) {
-            console.log(error);
-        }
-    };
+  const fetchApi = async () => {
+    try {
+      const storedToken = localStorage.getItem('authToken')
+      let response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/restaurants`,
+        {
+          headers: { Authorization: `Bearer ${storedToken}` },
+        },
+      )
+      let restaurantsFromApi = response.data
+      setBest(restaurantsFromApi)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
-    useEffect(() => {
-        fetchApi();
-    
-    }, []); 
+  useEffect(() => {
+    fetchApi()
+  }, [])
 
-    return (
+  return (
     <SectionTag>
       <Row xs={2} sm={3} className="m-4">
         {best
@@ -57,26 +47,23 @@ function BestRatedPage() {
           .map((i) => {
             return (
               <Col key={i._id}>
-                <Card className="h-100" style={{ width: "27rem" }}>
+                <Card className="h-100" style={{ width: '27rem' }}>
                   <Card.Body>
                     <Card.Img
                       variant="top"
                       src={i.image}
-                      style={{ height: "35vh" }}
+                      style={{ height: '35vh' }}
                     />
                     <Card.Title>Name: {i.name} </Card.Title>
-                    {/* <Card.Text>Address: {i.address}</Card.Text> */}
-                    {/* <Card.Text>You can find here: {i.description}</Card.Text> */}
                     <Card.Text>Current rating: {i.rating} out of 5!</Card.Text>
                   </Card.Body>
                 </Card>
               </Col>
-            );
+            )
           })}
       </Row>
     </SectionTag>
-  );
+  )
 }
 
-
-export default BestRatedPage;
+export default BestRatedPage

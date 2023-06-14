@@ -1,29 +1,29 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
-import BackgroundSignup from ".././assets/images/photo-restaurant.jpg"
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
+import BackgroundSignup from '.././assets/images/photo-restaurant.jpg'
 
 function SignupPage() {
-  const [email, setemail] = useState("");
-  const [passwordHash, setPasswordHash] = useState("");
+  const [email, setemail] = useState('')
+  const [passwordHash, setPasswordHash] = useState('')
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
-  const handlePasswordHash = (e) => setPasswordHash(e.target.value);
-  const handleemail = (e) => setemail(e.target.value);
+  const handlePasswordHash = (e) => setPasswordHash(e.target.value)
+  const handleemail = (e) => setemail(e.target.value)
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    const body = { email, passwordHash };
+    const body = { email, passwordHash }
 
     axios
       .post(`${process.env.REACT_APP_API_URL}/auth/signup`, body)
       .then((response) => {
-        navigate("/login");
+        navigate('/login')
       })
-      .catch((err) => console.log(err));
-  };
+      .catch((err) => console.log(err))
+  }
   return (
     <section className="section-1">
       <div
@@ -33,7 +33,7 @@ function SignupPage() {
         <h1>Signup</h1>
         <form onSubmit={handleSubmit}>
           <label className="text-labels" htmlFor="email">
-            {" "}
+            {' '}
             Email
           </label>
           <input
@@ -44,7 +44,7 @@ function SignupPage() {
           />
 
           <label className="text-labels" htmlFor="passwordHash">
-            {" "}
+            {' '}
             Password
           </label>
           <input
@@ -58,7 +58,7 @@ function SignupPage() {
         </form>
       </div>
     </section>
-  );
+  )
 }
 
-export default SignupPage;
+export default SignupPage
